@@ -1,11 +1,18 @@
-@(media: List[Medium])
+@(media: List[Medium])(implicit flash: Flash)
 
 @main("メディア一覧") {
+@if(flash.get("success")) {
+  <p>@flash.get("success")</p>
+}
+<p>
+<a href="@routes.MediaController.build">新規メディア登録</a>
+</p>
 <table>
   <thead>
     <tr>
       <td>ID</td>
       <td>メディア名</td>
+      <td>URL</td>
     </tr>
   </thead>
   <tbody>
@@ -13,6 +20,7 @@
     <tr>
       <td>@medium.id</td>
       <td>@medium.name</td>
+      <td><a href="@medium.url" target="_blank">@medium.url</a></td>
     </tr>
     }
   </tbody>
