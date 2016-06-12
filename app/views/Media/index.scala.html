@@ -1,0 +1,20 @@
+@(media: List[Medium])
+
+@main("メディア一覧") {
+<table>
+  <thead>
+    <tr>
+      <td>ID</td>
+      <td>メディア名</td>
+    </tr>
+  </thead>
+  <tbody>
+    @for(medium <- media) {
+    <tr>
+      <td>@medium.id</td>
+      <td>@medium.name</td>
+    </tr>
+    }
+  </tbody>
+</table>
+}
