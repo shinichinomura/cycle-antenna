@@ -22,7 +22,10 @@
       <td>@medium.id</td>
       <td>@medium.name</td>
       <td><a href="@medium.url" target="_blank">@medium.url</a></td>
-      <td><a href="@routes.MediaController.edit(medium.id)">編集</a></td>
+      <td>
+        <a href="@routes.MediaController.edit(medium.id)">編集</a>
+        <a href="@routes.MediaController.delete(medium.id)">削除</a>
+      </td>
     </tr>
     }
   </tbody>

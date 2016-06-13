@@ -20,4 +20,8 @@ object Medium {
   def update(id: Long, name: String, url: String): Int = {
     sql"UPDATE media SET name = ${name}, url = ${url} WHERE id = ${id}".update.apply()
   }
+
+  def delete(id: Long): Int = {
+    sql"DELETE FROM media WHERE id = ${id}".update.apply()
+  }
 }

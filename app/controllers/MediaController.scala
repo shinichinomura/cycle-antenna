@@ -56,4 +56,10 @@ class MediaController extends Controller {
       }
     )
   }
+
+  def delete(id: Long) = Action { implicit request =>
+    Medium.delete(id)
+
+    Redirect(routes.MediaController.index).flashing("success" -> "Medium deleted!")
+  }
 }
