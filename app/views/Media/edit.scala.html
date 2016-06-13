@@ -1,0 +1,11 @@
+@import forms.MediumFormData
+
+@(id: Long, mediumForm: Form[MediumFormData])(implicit messages: Messages)
+
+@main("メディア情報編集") {
+  @helper.form(action = routes.MediaController.update(id)) {
+    @helper.inputText(mediumForm("name"))
+    @helper.inputText(mediumForm("url"))
+    <input type="submit" />
+  }
+}

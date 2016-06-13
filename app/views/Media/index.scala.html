@@ -13,6 +13,7 @@
       <td>ID</td>
       <td>メディア名</td>
       <td>URL</td>
+      <td></td>
     </tr>
   </thead>
   <tbody>
@@ -21,6 +22,7 @@
       <td>@medium.id</td>
       <td>@medium.name</td>
       <td><a href="@medium.url" target="_blank">@medium.url</a></td>
+      <td><a href="@routes.MediaController.edit(medium.id)">編集</a></td>
     </tr>
     }
   </tbody>

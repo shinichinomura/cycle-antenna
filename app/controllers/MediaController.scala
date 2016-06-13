@@ -36,4 +36,24 @@ class MediaController extends Controller {
       }
     )
   }
+
+  def edit(id: Long) = Action {
+    val mediumForm = MediumForm(id)
+
+    Ok(views.html.Media.edit(id, mediumForm))
+  }
+
+  def update(id: Long) = Action { implicit request =>
+    val mediumForm = MediumForm()
+
+    mediumForm.bindFromRequest.fold(
+      formWithErrors => {
+        BadRequest(views.html.Media.edit(id, formWithErrors))
+      },
+      mediumFormData => {
+        Medium.update(id, mediumFormData.name, mediumFormData.url)
+        Redirect(routes.MediaController.index).flashing("success" -> "Medium updated!")
+      }
+    )
+  }
 }
