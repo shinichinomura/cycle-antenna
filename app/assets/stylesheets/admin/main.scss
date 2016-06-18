@@ -1,0 +1,52 @@
+body {
+  font-size: 12px;
+  color: #333;
+}
+
+table {
+  border-collapse: collapse;
+
+  thead {
+    text-align: center;
+
+    th {
+      padding: .75em;
+      border-bottom: 2px solid #333;
+    }
+  }
+
+  td {
+    padding: .5em;
+  }
+
+  td.numeric {
+    text-align: right;
+  }
+}
+
+input[type=text],
+textarea {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+  padding: .5em;
+  border: solid 1px #ccc;
+  border-radius: 2px;
+}
+
+form {
+  dl {
+    dt {
+    }
+
+    dd {
+      margin-top: .25em;
+      margin-left: 0;
+
+      &.error {
+        font-weight: bold;
+        color: #f60;
+      }
+    }
+  }
+}

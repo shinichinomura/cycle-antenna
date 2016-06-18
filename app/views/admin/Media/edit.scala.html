@@ -4,9 +4,9 @@
 
 @views.html.admin.main("メディア情報編集") {
   @helper.form(action = controllers.admin.routes.MediaController.update(id)) {
-    @helper.inputText(mediumForm("name"))
-    @helper.inputText(mediumForm("url"))
-    @helper.inputText(mediumForm("feed_url"))
+  @helper.inputText(mediumForm("name"), 'size -> 30)
+    @helper.inputText(mediumForm("url"), 'size -> 60)
+    @helper.inputText(mediumForm("feed_url"), 'size -> 60)
     <input type="submit" />
   }
 }

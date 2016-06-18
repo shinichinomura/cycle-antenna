@@ -10,17 +10,17 @@
 <table>
   <thead>
     <tr>
-      <td>ID</td>
-      <td>メディア名</td>
-      <td>URL</td>
-      <td>フィードURL</td>
-      <td></td>
+      <th>ID</th>
+      <th>メディア名</th>
+      <th>URL</th>
+      <th>フィードURL</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     @for(medium <- media) {
     <tr>
-      <td>@medium.id</td>
+      <td class="numeric">@medium.id</td>
       <td>@medium.name</td>
       <td><a href="@medium.url" target="_blank">@medium.url</a></td>
       <td><a href="@medium.feed_url" target="_blank">@medium.feed_url</a></td>
