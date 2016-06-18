@@ -14,6 +14,8 @@ class MediumArticleRetriever(medium: Medium) {
   def retrieve() = {
     val current_datetime = new DateTime()
 
+    medium.updateRetrievedAt()
+
     rss_reader.items.foreach { item =>
       MediumArticleRepository.register(
         item.get('link).get,
