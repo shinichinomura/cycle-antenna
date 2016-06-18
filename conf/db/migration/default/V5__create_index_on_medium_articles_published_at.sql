@@ -1,0 +1,1 @@
+CREATE INDEX medium_articles_published_at_idx ON medium_articles(published_at);
