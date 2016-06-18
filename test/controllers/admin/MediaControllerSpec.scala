@@ -1,7 +1,9 @@
+package test.controllers.admin
+
 import play.api.mvc._
 import play.api.test._
 import scala.concurrent.Future
-import controllers.MediaController
+import controllers.admin.MediaController
 
 object MediaControllerSpec extends PlaySpecification with Results {
   "MediaController#index" should {

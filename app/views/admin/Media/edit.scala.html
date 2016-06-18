@@ -3,7 +3,7 @@
 @(id: Long, mediumForm: Form[MediumFormData])(implicit messages: Messages)
 
 @views.html.admin.main("メディア情報編集") {
-  @helper.form(action = routes.MediaController.update(id)) {
+  @helper.form(action = controllers.admin.routes.MediaController.update(id)) {
     @helper.inputText(mediumForm("name"))
     @helper.inputText(mediumForm("url"))
     @helper.inputText(mediumForm("feed_url"))
