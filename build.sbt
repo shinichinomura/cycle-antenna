@@ -18,7 +18,9 @@ libraryDependencies ++= Seq(
   "org.scalikejdbc" %% "scalikejdbc-config"           % "2.4.0",
   "org.scalikejdbc" %% "scalikejdbc-play-initializer" % "2.5.1",
   "org.scalikejdbc" %% "scalikejdbc-test"             % "2.2.0"  % "test",
-  "org.scalikejdbc" %% "scalikejdbc-play-fixture-plugin" % "2.3.2"
+  "org.scalikejdbc" %% "scalikejdbc-play-fixture-plugin" % "2.3.2",
+  "joda-time" % "joda-time" % "2.7",
+  "org.joda" % "joda-convert" % "1.7"
 )
 
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"

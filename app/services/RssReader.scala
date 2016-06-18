@@ -1,3 +1,5 @@
+package services
+
 import java.net.URL
 import java.util.Locale
 import scala.xml._
