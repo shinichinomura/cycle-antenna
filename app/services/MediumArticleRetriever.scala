@@ -9,7 +9,7 @@ import repositories.MediumArticleRepository
 import utils._
 
 class MediumArticleRetriever(medium: Medium) {
-  val rss_reader = new RssReader(new URL(medium.feed_url))
+  val rss_reader = new RssReader(medium.feed_url)
 
   def retrieve() = {
     val current_datetime = new DateTime()

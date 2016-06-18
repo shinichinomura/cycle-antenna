@@ -21,7 +21,8 @@ libraryDependencies ++= Seq(
   "org.scalikejdbc" %% "scalikejdbc-play-fixture-plugin" % "2.3.2",
   "joda-time" % "joda-time" % "2.7",
   "org.joda" % "joda-convert" % "1.7",
-  "com.enragedginger" %% "akka-quartz-scheduler" % "1.5.0-akka-2.4.x"
+  "com.enragedginger" %% "akka-quartz-scheduler" % "1.5.0-akka-2.4.x",
+  "net.databinder.dispatch" %% "dispatch-core" % "0.11.0"
 )
 
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
