@@ -2,7 +2,7 @@
 
 @(mediumForm:Form[MediumFormData])(implicit messages: Messages)
 
-@main("新規メディア登録") {
+@views.html.admin.main("新規メディア登録") {
   @helper.form(action = routes.MediaController.create()) {
     @helper.inputText(mediumForm("name"))
     @helper.inputText(mediumForm("url"))

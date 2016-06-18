@@ -14,13 +14,13 @@ class MediaController extends Controller {
   def index = Action { implicit request =>
     val media = MediumRepository.fetchAll()
 
-    Ok(views.html.Media.index(media))
+    Ok(views.html.admin.Media.index(media))
   }
 
   def build = Action {
     val mediumForm = MediumForm()
 
-    Ok(views.html.Media.build(mediumForm))
+    Ok(views.html.admin.Media.build(mediumForm))
   }
 
   def create = Action { implicit request =>
@@ -28,7 +28,7 @@ class MediaController extends Controller {
 
     mediumForm.bindFromRequest.fold(
       formWithErrors => {
-        BadRequest(views.html.Media.build(formWithErrors))
+        BadRequest(views.html.admin.Media.build(formWithErrors))
       },
       mediumFormData => {
         MediumRepository.register(mediumFormData.name, mediumFormData.url, mediumFormData.feed_url)
@@ -40,7 +40,7 @@ class MediaController extends Controller {
   def edit(id: Long) = Action {
     val mediumForm = MediumForm(id)
 
-    Ok(views.html.Media.edit(id, mediumForm))
+    Ok(views.html.admin.Media.edit(id, mediumForm))
   }
 
   def update(id: Long) = Action { implicit request =>
@@ -48,7 +48,7 @@ class MediaController extends Controller {
 
     mediumForm.bindFromRequest.fold(
       formWithErrors => {
-        BadRequest(views.html.Media.edit(id, formWithErrors))
+        BadRequest(views.html.admin.Media.edit(id, formWithErrors))
       },
       mediumFormData => {
         MediumRepository.update(id, mediumFormData.name, mediumFormData.url, mediumFormData.feed_url)
