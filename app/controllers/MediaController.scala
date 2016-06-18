@@ -31,7 +31,7 @@ class MediaController extends Controller {
         BadRequest(views.html.Media.build(formWithErrors))
       },
       mediumFormData => {
-        MediumRepository.register(mediumFormData.name, mediumFormData.url)
+        MediumRepository.register(mediumFormData.name, mediumFormData.url, mediumFormData.feed_url)
         Redirect(routes.MediaController.index).flashing("success" -> "Medium saved!")
       }
     )
@@ -51,7 +51,7 @@ class MediaController extends Controller {
         BadRequest(views.html.Media.edit(id, formWithErrors))
       },
       mediumFormData => {
-        MediumRepository.update(id, mediumFormData.name, mediumFormData.url)
+        MediumRepository.update(id, mediumFormData.name, mediumFormData.url, mediumFormData.feed_url)
         Redirect(routes.MediaController.index).flashing("success" -> "Medium updated!")
       }
     )

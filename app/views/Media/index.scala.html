@@ -13,6 +13,7 @@
       <td>ID</td>
       <td>メディア名</td>
       <td>URL</td>
+      <td>フィードURL</td>
       <td></td>
     </tr>
   </thead>
@@ -22,6 +23,7 @@
       <td>@medium.id</td>
       <td>@medium.name</td>
       <td><a href="@medium.url" target="_blank">@medium.url</a></td>
+      <td><a href="@medium.feed_url" target="_blank">@medium.feed_url</a></td>
       <td>
         <a href="@routes.MediaController.edit(medium.id)">編集</a>
         <a href="@routes.MediaController.delete(medium.id)">削除</a>

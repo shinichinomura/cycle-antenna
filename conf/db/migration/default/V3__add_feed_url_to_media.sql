@@ -1,0 +1,2 @@
+ALTER TABLE media ADD COLUMN feed_url VARCHAR(1024);
+

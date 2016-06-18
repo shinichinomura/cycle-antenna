@@ -1,3 +1,3 @@
 package models
 
-case class Medium (id: Long, name: String, url: String)
+case class Medium (id: Long, name: String, url: String, feed_url: String)

@@ -6,6 +6,7 @@
   @helper.form(action = routes.MediaController.create()) {
     @helper.inputText(mediumForm("name"))
     @helper.inputText(mediumForm("url"))
+    @helper.inputText(mediumForm("feed_url"))
     <input type="submit" />
   }
 }
