@@ -5,14 +5,14 @@ import play.api.Play.current
 import play.api.i18n.Messages.Implicits._
 import scalikejdbc._
 import models.Medium
+import repositories.MediumRepository
 import forms.MediumForm
 
 class MediaController extends Controller {
   implicit val session = AutoSession
 
   def index = Action { implicit request =>
-    val media: List[Medium] = 
-      sql"SELECT * FROM media".map(rs => Medium(rs)).list.apply()
+    val media = MediumRepository.fetchAll()
 
     Ok(views.html.Media.index(media))
   }
@@ -31,7 +31,7 @@ class MediaController extends Controller {
         BadRequest(views.html.Media.build(formWithErrors))
       },
       mediumFormData => {
-        Medium(mediumFormData.name, mediumFormData.url)
+        MediumRepository.register(mediumFormData.name, mediumFormData.url)
         Redirect(routes.MediaController.index).flashing("success" -> "Medium saved!")
       }
     )
@@ -51,14 +51,14 @@ class MediaController extends Controller {
         BadRequest(views.html.Media.edit(id, formWithErrors))
       },
       mediumFormData => {
-        Medium.update(id, mediumFormData.name, mediumFormData.url)
+        MediumRepository.update(id, mediumFormData.name, mediumFormData.url)
         Redirect(routes.MediaController.index).flashing("success" -> "Medium updated!")
       }
     )
   }
 
   def delete(id: Long) = Action { implicit request =>
-    Medium.delete(id)
+    MediumRepository.delete(id)
 
     Redirect(routes.MediaController.index).flashing("success" -> "Medium deleted!")
   }
