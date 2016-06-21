@@ -1,4 +1,4 @@
-@(media: List[Medium])(implicit flash: Flash)
+@(media: List[Medium], medium_articles: List[MediumArticle])(implicit flash: Flash)
 
 @views.html.admin.main("メディア一覧") {
 @if(flash.get("success")) {
@@ -28,6 +28,24 @@
         <a href="@controllers.admin.routes.MediaController.edit(medium.id)">編集</a>
         <a href="@controllers.admin.routes.MediaController.delete(medium.id)">削除</a>
       </td>
+    </tr>
+    }
+  </tbody>
+</table>
+
+<h2>最近取得した記事</h2>
+<table>
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th>取得日時</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(article <- medium_articles) {
+    <tr>
+      <td><a href="@article.url" target="_blank">@article.title</a></td>
+      <td>@article.retrieved_at.toString()</td>
     </tr>
     }
   </tbody>

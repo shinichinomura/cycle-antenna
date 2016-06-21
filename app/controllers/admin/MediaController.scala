@@ -6,6 +6,7 @@ import play.api.i18n.Messages.Implicits._
 import scalikejdbc._
 import models.Medium
 import repositories.MediumRepository
+import repositories.MediumArticleRepository
 import forms.MediumForm
 
 class MediaController extends Controller {
@@ -14,7 +15,7 @@ class MediaController extends Controller {
   def index = Action { implicit request =>
     val media = MediumRepository.fetchAll()
 
-    Ok(views.html.admin.Media.index(media))
+    Ok(views.html.admin.Media.index(media, MediumArticleRepository.fetchRecentlyPublished()))
   }
 
   def build = Action {
