@@ -29,7 +29,17 @@ div.article {
   }
 
   > p {
-    margin-top: .5em;
+    margin-top: 0;
     margin-bottom: 0;
+    min-height: 120px;
+
+    > img {
+      object-fit: cover;
+      width: 120px;
+      height: 120px;
+      float: left;
+      margin-right: 1em;
+      border-radius: 4px;
+    }
   }
 }
