@@ -9,7 +9,7 @@
     <div class="medium_name">
       <span>@article.medium.name</span>
     </div>
-    <h3>@article.title</h3>
+    <h3><a href="@article.url">@article.title</a></h3>
     <p>
       <img src="@article.loadOrGetImageOriginalUrl" />
       @Html(h.stripTags(article.description))
