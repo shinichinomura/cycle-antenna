@@ -8,7 +8,7 @@ object Global extends GlobalSettings {
   val actor = system.actorOf(Props(classOf[MediumArticleRetrievingActor]))
 
   override def onStart(app: Application) = {
-    QuartzSchedulerExtension(system).schedule("Every1Minutes", actor, "run")
+    QuartzSchedulerExtension(system).schedule("Every1Hour", actor, "run")
   }
 
   override def onStop(app: Application) = {
