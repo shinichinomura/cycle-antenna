@@ -8,4 +8,13 @@ object HTMLHelper {
 
     regexp.replaceAllIn(string, "")
   }
+
+  def truncate(string: String, length: Int, tail: String = "..."): String = {
+    if (string.size > length) {
+      string.substring(0, length) + tail
+    }
+    else {
+      string
+    }
+  }
 }
