@@ -5,6 +5,22 @@ body {
   font-size: 14px;
 }
 
+#Header {
+  background-color: navy;
+}
+
+h1 {
+  font-size: 20px;
+  text-align: center;
+  color: #fff;
+  margin: 0;
+  padding: .5em;
+
+  i {
+    margin: auto .5em;
+  }
+}
+
 div.article {
   margin-bottom: 1em;
   border-top: 1px solid #eee;
