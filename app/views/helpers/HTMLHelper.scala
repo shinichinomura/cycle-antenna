@@ -1,5 +1,8 @@
 package views.helpers
 
+import org.joda.time.DateTime
+import org.joda.time.format._
+
 class HTMLHelper
 
 object HTMLHelper {
@@ -16,5 +19,9 @@ object HTMLHelper {
     else {
       string
     }
+  }
+
+  def datetimeFormat(datetime: DateTime, format: String): String = {
+    DateTimeFormat.forPattern(format).print(datetime)
   }
 }

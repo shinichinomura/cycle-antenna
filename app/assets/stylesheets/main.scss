@@ -28,6 +28,12 @@ div.article {
     }
   }
 
+  > span.published_at {
+    float: right;
+    font-size: 10px;
+    padding: .25em;
+  }
+
   > p {
     margin-top: 0;
     margin-bottom: 0;
