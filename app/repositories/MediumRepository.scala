@@ -12,19 +12,19 @@ object MediumRepository {
 
   def fetchAll(): List[Medium] = {
     sql"SELECT * FROM media".map{
-      rs => new Medium(rs.long("id"), rs.string("name"), rs.string("url"), rs.string("feed_url"))
+      rs => new Medium(rs.long("id"), rs.string("name"), rs.string("url"), rs.string("feed_url"), rs.jodaDateTime("retrieved_at"))
     }.list.apply()
   }
 
   def findById(id: Long): Option[Medium] = {
     sql"SELECT * FROM media WHERE id = ${id}".map{
-      rs => new Medium(rs.long("id"), rs.string("name"), rs.string("url"), rs.string("feed_url"))
+      rs => new Medium(rs.long("id"), rs.string("name"), rs.string("url"), rs.string("feed_url"), rs.jodaDateTime("retrieved_at"))
     }.single.apply()
   }
 
   def fetchNextRetrieving(): Option[Medium] = {
     sql"SELECT * FROM media WHERE url IS NOT NULL ORDER BY retrieved_at LIMIT 1".map{
-      rs => new Medium(rs.long("id"), rs.string("name"), rs.string("url"), rs.string("feed_url"))
+      rs => new Medium(rs.long("id"), rs.string("name"), rs.string("url"), rs.string("feed_url"), rs.jodaDateTime("retrieved_at"))
     }.single.apply()
   }
 

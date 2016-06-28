@@ -14,6 +14,7 @@
       <th>メディア名</th>
       <th>URL</th>
       <th>フィードURL</th>
+      <th>最終RSS取得日時</th>
       <th></th>
     </tr>
   </thead>
@@ -24,6 +25,7 @@
       <td>@medium.name</td>
       <td><a href="@medium.url" target="_blank">@medium.url</a></td>
       <td><a href="@medium.feed_url" target="_blank">@medium.feed_url</a></td>
+      <td>@medium.retrieved_at</td>
       <td>
         <a href="@controllers.admin.routes.MediaController.edit(medium.id)">編集</a>
         <a href="@controllers.admin.routes.MediaController.delete(medium.id)">削除</a>
