@@ -7,9 +7,9 @@ import repositories.MediumArticleRepository
 
 @Singleton
 class HomeController @Inject() extends Controller {
-  def index = Action {
-    val medium_articles = MediumArticleRepository.fetchRecentlyPublished()
+  def index(page: Long) = Action {
+    val medium_articles = MediumArticleRepository.fetchRecentlyPublished((page - 1)*20, 20)
 
-    Ok(views.html.index(medium_articles))
+    Ok(views.html.index(medium_articles, page))
   }
 }

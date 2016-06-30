@@ -1,7 +1,8 @@
 @import scala.xml.XML
 @import views.helpers.{ HTMLHelper => h }
+@import repositories.MediumArticleRepository
 
-@(medium_articles: List[MediumArticle])
+@(medium_articles: List[MediumArticle], page: Long)
 
 @main("自転車アンテナ") {
   @for(article <- medium_articles) {
@@ -17,4 +18,16 @@
     </p>
   </div>
   }
+
+  <div class="pages">
+  @if(page > 1) {
+    <a href="/pages/@(page - 1)" class="previous"><i class="fa fa-chevron-left" aria-hidden="true"></i>前のページ</a>
+  }
+  @if(MediumArticleRepository.count > page * 20) {
+    <a href="/pages/@(page + 1)" class="next">次のページ<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+  }
+  </div>
+
+  <div id="Footer">
+  </div>
 }

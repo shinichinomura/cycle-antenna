@@ -20,6 +20,10 @@ object MediumArticleRepository {
     }.single.apply()
   }
 
+  def count: Long = {
+    sql"SELECT COUNT(*) AS `count` FROM medium_articles".map{ rs => rs.long("count") }.single.apply().getOrElse(0)
+  }
+
   def register(url: String, medium_id: Long, title: String, description: String, published_at: String, retrieved_at: String): Int = {
     fetchByUrl(url) match {
       case Some(article) =>
