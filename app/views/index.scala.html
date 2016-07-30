@@ -14,7 +14,7 @@
     <h3><a href="@article.url">@article.title</a></h3>
     <p>
       <img src="@article.loadOrGetImageOriginalUrl" />
-      @Html(h.truncate(h.stripTags(article.description).trim, 100))
+      <span class="summary"><i class="fa fa-file-text-o" aria-hidden="true"></i><a href="@controllers.routes.MediumArticlesController.show(article.url)">3行まとめを読む</a><span>
     </p>
   </div>
   }

@@ -10,13 +10,13 @@ object MediumArticleRepository {
 
   def fetchRecentlyPublished(offset: Long = 0, limit: Long = 20): List[MediumArticle] = {
     sql"SELECT * FROM medium_articles ORDER BY published_at DESC LIMIT ${limit} OFFSET ${offset}".map{
-      rs => new MediumArticle(rs.string("url"), rs.long("medium_id"), rs.string("title"), rs.string("description"), rs.jodaDateTime("published_at"), rs.jodaDateTime("retrieved_at"), rs.string("image_original_url"))
+      rs => new MediumArticle(rs.string("url"), rs.long("medium_id"), rs.string("title"), rs.string("description"), rs.string("summary"), rs.jodaDateTime("published_at"), rs.jodaDateTime("retrieved_at"), rs.string("image_original_url"))
     }.list.apply()
   }
 
   def fetchByUrl(url: String): Option[MediumArticle] = {
     sql"SELECT * FROM medium_articles WHERE url = ${url}".map{
-      rs => new MediumArticle(rs.string("url"), rs.long("medium_id"), rs.string("title"), rs.string("description"), rs.jodaDateTime("published_at"), rs.jodaDateTime("retrieved_at"), rs.string("image_original_url"))
+      rs => new MediumArticle(rs.string("url"), rs.long("medium_id"), rs.string("title"), rs.string("description"), rs.string("summary"), rs.jodaDateTime("published_at"), rs.jodaDateTime("retrieved_at"), rs.string("image_original_url"))
     }.single.apply()
   }
 
@@ -35,5 +35,9 @@ object MediumArticleRepository {
 
   def storeImageOriginalUrl(url: String, image_original_url: String): Int = {
     sql"UPDATE medium_articles SET image_original_url = ${image_original_url} WHERE url = ${url}".update.apply()
+  }
+
+  def storeSummary(url: String, summary: String): Int = {
+    sql"UPDATE medium_articles SET summary = ${summary} WHERE url = ${url}".update.apply()
   }
 }
