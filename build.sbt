@@ -23,7 +23,8 @@ libraryDependencies ++= Seq(
   "org.joda" % "joda-convert" % "1.7",
   "com.enragedginger" %% "akka-quartz-scheduler" % "1.5.0-akka-2.4.x",
   "net.databinder.dispatch" %% "dispatch-core" % "0.11.0",
-  "org.jsoup" % "jsoup" % "1.9.2"
+  "org.jsoup" % "jsoup" % "1.9.2",
+  "org.json4s" %% "json4s-jackson" % "3.4.0"
 )
 
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"

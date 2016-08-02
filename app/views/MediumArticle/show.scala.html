@@ -1,0 +1,17 @@
+@import views.helpers.{ HTMLHelper => h }
+
+@(medium_article: MediumArticle)
+
+@main(s"自転車アンテナ - ${medium_article.title}", List("medium_articles/main.css")) {
+  <h2><a href="@medium_article.url">@medium_article.title</a></h2>
+  <div class="eye_catch">
+    <img src="@medium_article.loadOrGetImageOriginalUrl" />
+  </div>
+  <h3><i class="fa fa-file-text-o" aria-hidden="true"></i>3行まとめ</h3>
+  <ol>
+    @for(line <- medium_article.loadOrCreateSummary.split("\n")) {
+    <li>@line</li>
+    }
+  </ol>
+  <a href="@medium_article.url" target="_blank" class="medium_article">この記事を読む<i class="fa fa-external-link" aria-hidden="true"></i></a>
+}
